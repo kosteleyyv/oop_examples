@@ -6,26 +6,28 @@ Application::Modes Application::Mode = Application::Modes::TransliteKeyboardLayo
 
 	setlocale(LC_ALL, "Russian");
 	try {
-		// извлекаем текст из буфера обмена
+		// ГЁГ§ГўГ«ГҐГЄГ ГҐГ¬ ГІГҐГЄГ±ГІ ГЁГ§ ГЎГіГґГҐГ°Г  Г®ГЎГ¬ГҐГ­Г 
 		string stringFromClipboard = Clipboard::getText();
 
-		// определяем нужный объект для обработки по режиму запуска
+		// Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ Г­ГіГ¦Г­Г»Г© Г®ГЎГєГҐГЄГІ Г¤Г«Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ ГЇГ® Г°ГҐГ¦ГЁГ¬Гі Г§Г ГЇГіГ±ГЄГ 
 		TextEditer* textEditer = getTextEditer();
 
-		// передаем в него строку из буфера
+		// ГЇГҐГ°ГҐГ¤Г ГҐГ¬ Гў Г­ГҐГЈГ® Г±ГІГ°Г®ГЄГі ГЁГ§ ГЎГіГґГҐГ°Г 
 		textEditer->setSourceText(stringFromClipboard);
 
-		// получаем результат обработки
+		// ГЇГ®Г«ГіГ·Г ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
 		string stringToClipboard = textEditer->getEditionResult();
-
-		// возвращаем преобразованную строку в буфер обмена
+		
+		delete textEditer;
+		
+		// ГўГ®Г§ГўГ°Г Г№Г ГҐГ¬ ГЇГ°ГҐГ®ГЎГ°Г Г§Г®ГўГ Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Гў ГЎГіГґГҐГ° Г®ГЎГ¬ГҐГ­Г 
 		Clipboard::setText(stringToClipboard.c_str());
 
-		cout << "Строка из буфера обмена: " << stringFromClipboard.c_str() << endl << endl;
-		cout << "Строка в буфере обмена:  " << stringToClipboard.c_str() << endl;
+		cout << "Г‘ГІГ°Г®ГЄГ  ГЁГ§ ГЎГіГґГҐГ°Г  Г®ГЎГ¬ГҐГ­Г : " << stringFromClipboard.c_str() << endl << endl;
+		cout << "Г‘ГІГ°Г®ГЄГ  Гў ГЎГіГґГҐГ°ГҐ Г®ГЎГ¬ГҐГ­Г :  " << stringToClipboard.c_str() << endl;
 	}
 	catch (exception exp) {
-		cout << "Ошибка: " << exp.what() << endl;
+		cout << "ГЋГёГЁГЎГЄГ : " << exp.what() << endl;
 	}
 
 	system("pause");
