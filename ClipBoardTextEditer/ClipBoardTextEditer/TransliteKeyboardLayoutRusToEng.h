@@ -9,7 +9,7 @@ class TransliteKeyboardLayoutRusToEng : public BaseTransliteTextRusToEng {
 	static const int TRANSLITE_LAYOUT_SYMBOLS_COUNT = 95;
 
 	/// алфавит перевода
-	static const char* const transliteLayoutDictionary[TRANSLITE_LAYOUT_SYMBOLS_COUNT][2];
+	static const char* const TRANSLITE_LAYOUT_DICTIONARY[TRANSLITE_LAYOUT_SYMBOLS_COUNT][2];
 
 protected:
 	// переопределяемые методы, которые возвращают нужную таблицу алфавита

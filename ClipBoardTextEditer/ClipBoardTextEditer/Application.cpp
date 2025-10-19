@@ -5,6 +5,7 @@ Application::Modes Application::Mode = Application::Modes::TransliteKeyboardLayo
  int Application::run() {
 
 	setlocale(LC_ALL, "Russian");
+
 	try {
 		// извлекаем текст из буфера обмена
 		string stringFromClipboard = Clipboard::getText();
@@ -12,17 +13,22 @@ Application::Modes Application::Mode = Application::Modes::TransliteKeyboardLayo
 		// определяем нужный объект для обработки по режиму запуска
 		TextEditer* textEditer = getTextEditer();
 
-		// передаем в него строку из буфера
-		textEditer->setSourceText(stringFromClipboard);
+		if (textEditer != nullptr)
+		{
+			// передаем в него строку из буфера
+			textEditer->setSourceText(stringFromClipboard);
 
-		// получаем результат обработки
-		string stringToClipboard = textEditer->getEditionResult();
+			// получаем результат обработки
+			string stringToClipboard = textEditer->getEditionResult();
 
-		// возвращаем преобразованную строку в буфер обмена
-		Clipboard::setText(stringToClipboard.c_str());
+			// возвращаем преобразованную строку в буфер обмена
+			Clipboard::setText(stringToClipboard.c_str());
 
-		cout << "Строка из буфера обмена: " << stringFromClipboard.c_str() << endl << endl;
-		cout << "Строка в буфере обмена:  " << stringToClipboard.c_str() << endl;
+			cout << "Строка из буфера обмена: " << stringFromClipboard.c_str() << endl << endl;
+			cout << "Строка в буфере обмена:  " << stringToClipboard.c_str() << endl;
+
+			delete textEditer; // TODO утечка памяти при исключении!
+		}		
 	}
 	catch (exception exp) {
 		cout << "Ошибка: " << exp.what() << endl;

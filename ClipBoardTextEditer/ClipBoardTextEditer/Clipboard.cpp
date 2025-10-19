@@ -1,7 +1,7 @@
 ﻿#include "Clipboard.h"
 
  exception Clipboard::prepareException(string text) {
-	return exception((text 
+	return exception(  (text 
 		              + ". Код ошибки: " 
 		              + to_string(GetLastError())).c_str());
 }

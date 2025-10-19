@@ -5,14 +5,14 @@
 }
 
  const char* const TransliterationRusToEng::getSymbol(int index, DictionaryKeyTypes key) const { 
-	return transliterationDictionary[index][key];
+	return TRANSLITERATION_DICTIONARY[index][key];
 }
 
  TransliterationRusToEng::TransliterationRusToEng(TranslationDirection type) : BaseTransliteTextRusToEng(type) {
 }
 
 /// алфавит перевода
-const char* const TransliterationRusToEng::transliterationDictionary[TransliterationRusToEng::TRANSLITERATION_SYMBOLS_COUNT][2]{
+const char* const TransliterationRusToEng::TRANSLITERATION_DICTIONARY[TransliterationRusToEng::TRANSLITERATION_SYMBOLS_COUNT][2]{
 		{"а","a"},     {"б","b"},     {"в","v"},
 		{"г","g"},     {"д","d"},     {"е","e"},
 		{"ё","e"},     {"ж","zh"},    {"з","z"},

@@ -25,7 +25,8 @@ protected:
 	/// индекс языка в таблице
 	enum DictionaryKeyTypes  {
 		RUS, 
-		ENG };
+		ENG 
+	};
 
 	/// направление перевода
 	TranslationDirection translationType;

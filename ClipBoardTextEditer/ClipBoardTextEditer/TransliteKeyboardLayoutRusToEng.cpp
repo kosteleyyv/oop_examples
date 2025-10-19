@@ -5,14 +5,14 @@
  }
 
   const char* const TransliteKeyboardLayoutRusToEng::getSymbol(int index, DictionaryKeyTypes key) const { 
-	 return transliteLayoutDictionary[index][key];
+	 return TRANSLITE_LAYOUT_DICTIONARY[index][key];
  }
 
   TransliteKeyboardLayoutRusToEng::TransliteKeyboardLayoutRusToEng(TranslationDirection type) : BaseTransliteTextRusToEng(type) {
  }
 
 
- const char* const TransliteKeyboardLayoutRusToEng::transliteLayoutDictionary[TransliteKeyboardLayoutRusToEng::TRANSLITE_LAYOUT_SYMBOLS_COUNT][2]{
+ const char* const TransliteKeyboardLayoutRusToEng::TRANSLITE_LAYOUT_DICTIONARY[TransliteKeyboardLayoutRusToEng::TRANSLITE_LAYOUT_SYMBOLS_COUNT][2]{
 		{"Ё","~"}, {"!","!"},  {"\"","@"},  {"№","#"}, {";","$"},
 		{"%","%"}, {":","^"},  {"?","&"},   {"*","*"}, {"(","("},
 		{")",")"}, {"_","_"},  {"+","+"},   {"Й","Q"}, {"Ц","W"},

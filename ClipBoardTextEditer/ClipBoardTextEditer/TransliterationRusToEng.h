@@ -7,7 +7,7 @@ class TransliterationRusToEng : public BaseTransliteTextRusToEng {
 	/// длина алфавит перевода
 	static const int TRANSLITERATION_SYMBOLS_COUNT = 66;
 	/// алфавит перевода
-	static const char* const transliterationDictionary[TRANSLITERATION_SYMBOLS_COUNT][2];
+	static const char* const TRANSLITERATION_DICTIONARY[TRANSLITERATION_SYMBOLS_COUNT][2];
 
 protected:
 	// переопределяемые методы, которые возвращают нужную таблицу алфавита
